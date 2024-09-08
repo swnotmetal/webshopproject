@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      external: ['react', 'react-dom', 'formik', 'yup'],
+      external: ['formik', 'yup'],
     }
   },
 })
