@@ -1,0 +1,36 @@
+
+
+[
+	{
+		"id": 1,
+		"name": "Choco Crunch",
+		"production_date": "2024-08-15",
+		"expiry_date": "2024-09-15",
+		"price": 2.0,
+		"image_url": "https://t4.ftcdn.net/jpg/07/58/27/51/360_F_758275143_MmTw1FYUfx4bSFOOejDKNAbeqqqCkfZk.jpg"
+	},
+	{
+		"id": 2,
+		"name": "Salty Bites",
+		"production_date": "2024-08-20",
+		"expiry_date": "2024-09-20",
+		"price": 1.5,
+		"image_url": "https://aboutww2militaria.com/image/data/ALEX/46/erika-vol-18-april-1940-11364-1.jpg"
+	},
+	{
+		"id": 3,
+		"name": "Fruit Burst",
+		"production_date": "2024-08-25",
+		"expiry_date": "2024-09-25",
+		"price": 2.5,
+		"image_url": "https://t4.ftcdn.net/jpg/01/50/90/05/360_F_150900521_W0W2TcZxBSHziSp0rAWYEiXQBi7OLb8h.jpg"
+	},
+	{
+		"id": 4,
+		"name": "Nutty Delight",
+		"production_date": "2024-09-01",
+		"expiry_date": "2024-10-01",
+		"price": 3.0,
+		"image_url": "https://media.istockphoto.com/id/1129471544/photo/barbecue-flavor-potato-chips.jpg?s=612x612&w=0&k=20&c=bOYqbefAJAd2JYASbDn-Qkq57xoUweJOBZD-Xo2G5AY="
+	}
+]
