@@ -8,6 +8,16 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       external: ['formik', 'yup'],
-    }
+    },
+  },
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3001',
+    },
+  },
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
   },
 })
