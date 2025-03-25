@@ -104,3 +104,62 @@ The backend provides both REST API and GraphQL endpoints:
    ```bash
    git clone https://github.com/yourusername/webshop-project.git
    cd webshop-project/webshopbackend
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+
+3. Create a .env file with your MongoDB connection string
+   ```bash
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   ```
+
+4. Start the development server
+   ```bash
+   npm run dev
+   ```
+
+*****
+
+### Frontend Setup
+
+1. Navigate to the frontend directory
+   ```bash
+   cd ../webshopfront
+   ```
+
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+
+3. Create a .env file
+   ```bash
+   REACT_APP_API_URL=http://localhost:4000
+   ```
+
+4. Start the development server
+   ```bash
+   npm start
+   ```
+
+*****
+
+## Available Scripts
+
+### Backend
+
+- `npm run dev` - Start development server with hot-reload
+- `npm start` - Start production server
+- `npm run build` - Build TypeScript files
+- `npm test` - Run tests
+
+### Frontend
+
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm test` - Run tests
+- `npm run eject` - Eject from Create React App
