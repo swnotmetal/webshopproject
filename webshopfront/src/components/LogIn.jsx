@@ -1,56 +1,64 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import React from 'react';
-import { Formik, Form,  } from 'formik';
+import { Formik, Form } from 'formik';
 import * as yup from "yup";
 import { useNavigate } from 'react-router-dom';
-import { Paper, TextField, Button, Typography } from '@mui/material'
+import { Paper, TextField, Button, Typography } from '@mui/material';
+import { gql, useMutation } from '@apollo/client';
+
+const LOGIN_MUTATION = gql`
+  mutation Login($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      id
+      username
+      token
+    }
+  }
+`;
 
 const validationSchema = yup.object().shape({
-
-  username: yup
-    .string()
-    .min(5, 'Username must be longer than 5 characters')
-    .max(25, 'Username is too long!')
-    .required('Username is required'),
-  password: yup
-    .string()
-    .min(6, 'Password must be longer than 8 characters')
-    .max(30, 'Password is too long!')
-    .required('Password is required'),
+  username: yup.string().min(5).max(25).required(),
+  password: yup.string().min(6).max(30).required(),
 });
 
-
 const LoginPage = () => {
-  const navitage = useNavigate();
+  const navigate = useNavigate();
+  const [login] = useMutation(LOGIN_MUTATION);
 
   return (
-    <Paper elevation={3} style={ {padding: '20px', maxWidth: '400px', margin: '20 px auto', borderRadius:'10px'}}>
-      <Typography variant="h5" component="h3"> Admin Log In</Typography>
+    <Paper elevation={3} style={{ padding: '20px', maxWidth: '400px', margin: '20px auto', borderRadius: '10px' }}>
+      <Typography variant="h5" component="h3">Admin Log In</Typography>
       <br />
       <Formik
         initialValues={{ username: '', password: '' }}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          console.log(values);
-          navitage('/admin');
+        onSubmit={async (values) => {
+          try {
+            const { data } = await login({ variables: values });
+            localStorage.setItem('token', data.login.token);
+            navigate('/admin');
+          } catch (error) {
+            console.error('Login failed:', error);
+            alert('Invalid username or password');
+          }
         }}
       >
-      {({ errors, touched, handleChange, handleBlur }) => (  
-        <Form>
-          <div style={{marginBottom: '20px'}}>
-            <TextField
-               fullWidth
+        {({ errors, touched, handleChange, handleBlur }) => (
+          <Form>
+            <div style={{ marginBottom: '20px' }}>
+              <TextField
+                fullWidth
                 id="username"
                 name="username"
                 label="Username"
                 variant="outlined"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.username && Boolean( touched.username)}
+                error={errors.username && Boolean(touched.username)}
                 helperText={errors.username && touched.username && errors.username}
-             />
-          </div>
-          <div style={{ marginBottom: '20px' }}>
+              />
+            </div>
+            <div style={{ marginBottom: '20px' }}>
               <TextField
                 fullWidth
                 id="password"
@@ -67,8 +75,8 @@ const LoginPage = () => {
             <Button color="secondary" variant="contained" fullWidth type="submit">
               Submit
             </Button>
-        </Form>
-      )}
+          </Form>
+        )}
       </Formik>
     </Paper>
   );
