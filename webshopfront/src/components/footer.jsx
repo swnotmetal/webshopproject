@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
 import {Box, Typography, IconButton} from '@mui/material';
 import {Link} from 'react-router-dom';
 import {Login} from '@mui/icons-material';

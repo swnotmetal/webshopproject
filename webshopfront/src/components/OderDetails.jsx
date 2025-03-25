@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState} from 'react';
-import snacksData from "../snacks";
+// eslint-disable-next-line no-unused-vars
+import React, { useEffect, useState} from 'react';
+import snacksData from "../snacks.json";
 import { 
   Typography, 
   Grid, 

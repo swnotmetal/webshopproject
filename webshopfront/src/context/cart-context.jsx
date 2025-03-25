@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState, useCallback } from "react";
-import snacksData from "../snacks";
+// eslint-disable-next-line no-unused-vars
+import React, { createContext, useState, useCallback } from "react";
+import snacksData from "../snacks.json";
 
 export const ShopContext = createContext(null);
 
