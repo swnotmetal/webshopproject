@@ -148,18 +148,4 @@ The backend provides both REST API and GraphQL endpoints:
 
 *****
 
-## Available Scripts
-
-### Backend
-
-- `npm run dev` - Start development server with hot-reload
-- `npm start` - Start production server
-- `npm run build` - Build TypeScript files
-- `npm test` - Run tests
-
-### Frontend
-
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm test` - Run tests
-- `npm run eject` - Eject from Create React App
+## @Shuang Wu 2024
